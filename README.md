@@ -1,4 +1,4 @@
-# Network Monitor Pro
+# Network Monitor
 
 A comprehensive network monitoring system with AI-powered device discovery, SNMP monitoring, CLI access, and IPMI support for servers.
 
