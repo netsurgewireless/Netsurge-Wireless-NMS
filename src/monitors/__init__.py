@@ -11,6 +11,9 @@ from src.monitors.nginx import NginxMonitor
 from src.monitors.ntp import NTPMonitor, NTPHealthCheck, NTPServer
 from src.monitors.server_health import ServerHealthMonitor, PacketLossMonitor, NetworkSpeedMonitor
 from src.monitors.wireless import WirelessMonitor, WirelessChangeDetector
+from src.monitors.dns import DNSMonitor
+from src.monitors.database import DatabaseMonitor
+from src.monitors.cloud import CloudMonitor
 
 __all__ = [
     "PingMonitor",
@@ -30,4 +33,7 @@ __all__ = [
     "NetworkSpeedMonitor",
     "WirelessMonitor",
     "WirelessChangeDetector",
+    "DNSMonitor",
+    "DatabaseMonitor",
+    "CloudMonitor",
 ]

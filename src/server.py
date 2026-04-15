@@ -14,7 +14,8 @@ from src.monitors import (
     PingMonitor, PortMonitor, SNMPMonitor, HTTPMonitor,
     SSLMonitor, WMIMonitor, BandwidthMonitor, NetworkDiscovery,
     NginxMonitor, NTPMonitor, ServerHealthMonitor, PacketLossMonitor,
-    NetworkSpeedMonitor, WirelessMonitor
+    NetworkSpeedMonitor, WirelessMonitor, DNSMonitor, DatabaseMonitor,
+    CloudMonitor
 )
 from src.storage import Database
 from src.alerts import AlertManager
@@ -52,6 +53,9 @@ class NetworkMonitorServer:
             CheckType.BANDWIDTH: BandwidthMonitor(),
             CheckType.NGINX: NginxMonitor(),
             CheckType.NTP: NTPMonitor(),
+            CheckType.DNS: DNSMonitor(),
+            CheckType.DATABASE: DatabaseMonitor(),
+            CheckType.CLOUD: CloudMonitor(),
         }
 
         self._register_default_handlers()
