@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  netsurge-nms:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: netsurge-wireless-nms:latest
+    container_name: netsurge-nms
+    ports:
+      - "8080:8080"
+    volumes:
+      - nms_data:/app/data
+      - nms_logs:/app/logs
+      - nms_cache:/app/ai_cache
+    environment:
+      - PORT=8080
+      - HOST=0.0.0.0
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  netsurge-nms-client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: netsurge-wireless-nms:latest
+    container_name: netsurge-nms-client
+    ports:
+      - "8081:8080"
+    environment:
+      - SERVER_URL=http://netsurge-nms:8080
+      - PORT=8080
+    depends_on:
+      - netsurge-nms
+    restart: unless-stopped
+
+volumes:
+  nms_data:
+  nms_logs:
+  nms_cache:

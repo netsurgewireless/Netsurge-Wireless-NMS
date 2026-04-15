@@ -8,6 +8,7 @@ from src.monitors.wmi import WMIMonitor
 from src.monitors.bandwidth import BandwidthMonitor
 from src.monitors.discovery import NetworkDiscovery
 from src.monitors.nginx import NginxMonitor
+from src.monitors.ntp import NTPMonitor, NTPHealthCheck, NTPServer
 from src.monitors.server_health import ServerHealthMonitor, PacketLossMonitor, NetworkSpeedMonitor
 from src.monitors.wireless import WirelessMonitor, WirelessChangeDetector
 
@@ -21,6 +22,9 @@ __all__ = [
     "BandwidthMonitor",
     "NetworkDiscovery",
     "NginxMonitor",
+    "NTPMonitor",
+    "NTPHealthCheck",
+    "NTPServer",
     "ServerHealthMonitor",
     "PacketLossMonitor",
     "NetworkSpeedMonitor",

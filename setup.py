@@ -27,12 +27,31 @@ setup(
     ],
     python_requires=">=3.8",
     install_requires=[
+        # Core Server
         "flask>=2.0.0",
+        "werkzeug>=2.0.0",
+        "markupsafe>=2.0.0",
+        
+        # SNMP Monitoring
         "pysnmp>=4.0",
+        "pysnmp-py>=4.0",
+        "pysmi>=1.0",
+        "pyasn1>=0.4.8",
+        
+        # Network & Security
         "cryptography>=41.0",
         "requests>=2.28",
+        "urllib3>=2.0.0",
+        
+        # Scheduling
         "apscheduler>=3.10",
+        
+        # SSH/CLI Access
         "paramiko>=3.0",
+        "bcrypt>=4.0",
+        
+        # Database
+        "aiosqlite>=0.19.0",
     ],
     extras_require={
         "desktop": [
@@ -40,9 +59,14 @@ setup(
             "pystray>=0.19",
             "plyer>=2.1",
         ],
+        "server": [
+            "gunicorn>=20.0",
+        ],
         "dev": [
             "pyinstaller>=5.0",
             "pytest>=7.0",
+            "pytest-asyncio>=0.21.0",
+            "pytest-cov>=4.0",
         ],
     },
     entry_points={
@@ -53,8 +77,5 @@ setup(
         ],
     },
     include_package_data=True,
-    package_data={
-        "": ["*.json", "*.txt", "*.md"],
-    },
     zip_safe=False,
 )

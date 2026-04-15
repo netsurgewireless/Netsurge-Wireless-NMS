@@ -24,6 +24,7 @@ class CheckType(Enum):
     BANDWIDTH_IN = "bandwidth_in"
     BANDWIDTH_OUT = "bandwidth_out"
     NGINX = "nginx"
+    NTP = "ntp"
 
 
 class DeviceType(Enum):

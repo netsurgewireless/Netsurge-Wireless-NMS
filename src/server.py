@@ -13,7 +13,7 @@ from src.models import MonitorTarget, CheckType, DeviceType
 from src.monitors import (
     PingMonitor, PortMonitor, SNMPMonitor, HTTPMonitor,
     SSLMonitor, WMIMonitor, BandwidthMonitor, NetworkDiscovery,
-    NginxMonitor, ServerHealthMonitor, PacketLossMonitor,
+    NginxMonitor, NTPMonitor, ServerHealthMonitor, PacketLossMonitor,
     NetworkSpeedMonitor, WirelessMonitor
 )
 from src.storage import Database
@@ -51,6 +51,7 @@ class NetworkMonitorServer:
             CheckType.WMI: WMIMonitor(),
             CheckType.BANDWIDTH: BandwidthMonitor(),
             CheckType.NGINX: NginxMonitor(),
+            CheckType.NTP: NTPMonitor(),
         }
 
         self._register_default_handlers()
